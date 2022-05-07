@@ -819,6 +819,19 @@ install_sublime () {
     eval apt -y install sublime-text
     }
 
+install_mongodb () {
+    echo -e "\n $greenplus installing mongo"
+    eval wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | gpg --no-default-keyring --keyring ./temp-keyring.gpg --import
+    eval gpg --no-default-keyring --keyring ./temp-keyring.gpg --export --output mongo.gpg
+    eval rm temp-keyring.gpg temp-keyring.gpg~
+    eval mkdir -p /usr/local/share/keyrings
+    eval mv ./mongo.gpg /usr/local/share/keyrings
+    eval apt-get install apt-transport-https
+    eval echo "deb [signed-by=/usr/local/share/keyrings/mongo.gpg] http://repo.mongodb.org/apt/debian buster/mongodb-org/4.4 main" > /etc/apt/sources.list.d/mongodb-org-4.4.list
+    apt_update && apt_update_complete
+    eval apt -y install mongodb-org
+    }
+
 # 06.01.21 - Function rewrite code-oss was added to Kali 2021.2 repo
 install_vscode () {
     if [[ -f /usr/bin/code ]]; then
