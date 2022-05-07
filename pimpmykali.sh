@@ -210,6 +210,7 @@ fix_missing_test () {
     fix_sources
     fix_hushlogin         # 06.18.2021 - added fix for .hushlogin file
     apt_update && apt_update_complete
+    fix_libwacom
     apt_autoremove && apt_autoremove_complete
     eval apt -y remove kali-undercover $silent
     # 02.01.2020 - Added cifs-utils and libguestfs-tools as they are require for priv escalation
