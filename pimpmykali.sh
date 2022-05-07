@@ -221,8 +221,10 @@ fix_missing_test () {
     fix_gedit   $force    # restored to its former glory
     fix_root_connectionrefused
     fix_htop    $force
+    fix_golang  $force
     fix_nmap
     fix_rockyou
+    fix_theharvester      # 02.02.2021 - added theharvester to fix_missing
     silence_pcbeep        # 02.02.2021 - turn off terminal pc beep
     disable_power_checkde # 06.18.2021 - disable gnome or xfce power management based on desktop environment detection
     fix_python_requests
@@ -253,9 +255,11 @@ fix_all () {
 test_new_setup () {
     fix_missing_test   $force
     seclists      $force
-    install_vscode $force
     fix_grub
     fix_smbconf
+    fix_impacket
+    install_vscode $force
+    install_mongodb $force
     }
 
 
@@ -820,7 +824,7 @@ install_sublime () {
     }
 
 install_mongodb () {
-    echo -e "\n $greenplus installing mongo"
+    echo -e "\n $greenplus installing mongodb 4.4"
     eval wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | gpg --no-default-keyring --keyring ./temp-keyring.gpg --import
     eval gpg --no-default-keyring --keyring ./temp-keyring.gpg --export --output mongo.gpg
     eval rm temp-keyring.gpg temp-keyring.gpg~
