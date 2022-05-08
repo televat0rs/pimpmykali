@@ -1615,7 +1615,7 @@ check_arg () {
       --subl) install_sublime                  ;;
       --atom) install_atom                     ;;
    --upgrade) only_upgrade                     ;;
-      --test) test_new_setup                   ;;
+      --test) test_new_setup; fix_upgrade      ;;
    --mirrors) get_mirrorlist; best_ping; small_speedtest; large_speedtest; gen_new_sources; cleanup;;
 # --harvester) fix_theharvester                ;;
       *) pimpmykali_help ; exit 0              ;;
