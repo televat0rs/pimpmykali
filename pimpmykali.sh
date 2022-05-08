@@ -229,6 +229,7 @@ fix_missing_test () {
     silence_pcbeep        # 02.02.2021 - turn off terminal pc beep
     disable_power_checkde # 06.18.2021 - disable gnome or xfce power management based on desktop environment detection
     fix_python_requests
+    fix_pipxlrd
     fix_set
     fix_pyftpdlib         # 09.01.21 - added pyftpdlib for python2
     fix_httprobe          # 01.04.22 - added httprobe precompiled binary
