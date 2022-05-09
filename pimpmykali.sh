@@ -75,8 +75,8 @@
     findgroup=$(groups $finduser | grep -i -c "vboxsf")
 
 #    Logging
-#    LOG_FILE=/tmp/pimpmykali.log
-#    exec > >(tee ${LOG_FILE}) 2>&1
+    LOG_FILE=/tmp/pimpmykali.log
+    exec > >(tee ${LOG_FILE}) 2>&1
 
 # silent mode
     silent=''                  # uncomment to see all output
