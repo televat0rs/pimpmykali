@@ -261,7 +261,7 @@ test_new_setup () {
     fix_smbconf
     fix_impacket
     install_vscode $force
-    install_mongodb $force
+    # install_mongodb $force
     fix_mitm6 $force
     }
 
